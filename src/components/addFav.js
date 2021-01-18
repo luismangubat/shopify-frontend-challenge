@@ -2,9 +2,8 @@ import React from 'react';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
-import zIndex from '@material-ui/core/styles/zIndex';
 import CardContent from '@material-ui/core/CardContent'; 
-import { Opacity } from '@material-ui/icons';
+
 
 
 const useStyles = makeStyles({

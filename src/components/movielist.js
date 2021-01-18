@@ -2,7 +2,6 @@ import {React }from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 
-import CardContent from "@material-ui/core/CardContent";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -11,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'nowrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
     paddingTop: '30px',
     backgroundColor: '#0C0C0C'
 
