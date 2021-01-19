@@ -1,7 +1,7 @@
 import { React, useState, useEffect} from 'react';
 import './App.css';
 import MovieList  from './components/movielist';
-import Navbar from './components/navigation/Navbar';
+import Navbar from './components/navigation/navbar';
 import MovieHeading from './components/MovieHeading';
 import AddFav from './components/addFav';
 import RemoveFav from './components/RemoveFav';
