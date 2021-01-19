@@ -67,7 +67,7 @@ const App =() => {
   }
 
   let maxNominations;
-  if (favourites.length === 5) {
+  if (favourites) {
     console.log("Max")
     maxNominations = (
       <MaxBanner/>
