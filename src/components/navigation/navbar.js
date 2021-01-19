@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import {
   AppBar, Toolbar, Typography, List, ListItem,
-  withStyles, Grid, SwipeableDrawer, Button, makeStyles, fade
+  withStyles, Grid, SwipeableDrawer, makeStyles, fade
 } from '@material-ui/core';
  import MenuIcon from '@material-ui/icons/Menu';
  import InputBase from '@material-ui/core/InputBase';
@@ -39,8 +38,9 @@ const styleSheet = makeStyles((theme) => ({
 
   search: {
     position: 'relative',
+    textAlign: 'center',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade('#0C0C0C', 1),
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
@@ -142,7 +142,7 @@ class ResAppBar extends Component{
                <ListItem key = {3} button divider className = {this.props.classes.listItem} onClick={() => window.location = '/register'}> Get Started </ListItem>
              </List>
              <div  style={{height: 30 + 'px', width: 30 + 'px', paddingLeft: 85 + 'px', bottom: 0 + 'px', position: 'absolute', paddingBottom: 10 + 'px'}}>
-              Movie
+              Nomineers 
             </div>
          </div>
        </SwipeableDrawer>
@@ -158,13 +158,13 @@ class ResAppBar extends Component{
       <AppBar color='white' style={{
         backdropFilter: "blur(20px) saturate(200%)",
         boxShadow: "0 0 20px rgba(0,0,0,.04)",
-        background: 'rgba(250,251,255,.2)',
+        background: 'rgba(250,251,255,.01)',
         color: 'white'}}>
         <Toolbar>
-          <Typography  style={{flexGrow:1}} color="white" width='50px'height='50px' >
-            Movie 
+          <Typography  style={{flexGrow:12}} color="white" width='50px'height='50px' >
+          Nomineers  
           </Typography>
-          <Typography  style={{flexGrow:0.5}} color="white" width='50px'height='50px' >
+          <Typography  style={{flexGrow:1}} color="white" width='50px'height='50px'  >
             <div className={classes.search}     background= 'black'>
               <InputBase
                 placeholder={"Search..."}
@@ -178,15 +178,6 @@ class ResAppBar extends Component{
    
               />
             </div>
-          </Typography>
-          <Typography  className = {classes.padding} color="white" >
-            <Button onClick={() => window.location = '/l/blog'}> Blog </Button>
-          </Typography>
-          <Typography className = {classes.padding} color="white">
-            <Button> Become a creator </Button>
-          </Typography>
-          <Typography className = {classes.padding} color="white">
-            <Button>Sign Up</Button>
           </Typography>
         </Toolbar>
       </AppBar>

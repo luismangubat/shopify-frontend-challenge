@@ -10,13 +10,13 @@ const useStyles = makeStyles({
 
   iconContainer: {
     width: '168px',
-    height: 'px',
     paddingTop: '0px',
     background: 'rgba(18, 18, 18, 0.2)',
     position: 'absolute',
     paddingBottom: '100px',
     bottom:'17px',
     opacity: 1,
+    color: 'white',
     "&:hover": {
       background: 'rgba(18, 18, 18, 0.7)',
       color: 'white'

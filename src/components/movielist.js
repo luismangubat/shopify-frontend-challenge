@@ -37,11 +37,17 @@ const useStyles = makeStyles((theme) => ({
     height: '300px'
 
   },
+
+  featureComponent: {
+    maxHeight: '100px'
+  },
+
   imageContainer: {
     width: '300px',
     "&:hover": {
       width: '500px',
-      color: 'white'
+      color: 'white',
+      maxHeight: '100px'
     },
 
     image: {
@@ -67,7 +73,7 @@ export default function MovieList(props) {
         {props.movies.map((movie, index) => ( 
               <div className={classes.imageContainer}  >
                 <img src={movie.Poster} width="200px" height="300px" alt='movie' flexWrap='nowrap' className={classes.image}/>    
-                <FeatureComponent onClick={() => props.handleFav(movie)} title={movie.Title} year={movie.Year}/>
+                <FeatureComponent onClick={() => props.handleFav(movie)} title={movie.Title} year={movie.Year} />
               </div>
         ))}
       </GridList>
