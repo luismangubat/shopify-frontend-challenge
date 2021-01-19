@@ -7,8 +7,9 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>   <Switch>
-      < Route path="/" component={App} exact></Route>
+    <BrowserRouter>   
+      <Switch>
+        < Route path="/" component={App} exact></Route>
       </Switch>
     </BrowserRouter>
  

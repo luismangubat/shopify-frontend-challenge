@@ -7,6 +7,7 @@ import AddFav from './components/addFav';
 import RemoveFav from './components/RemoveFav';
 import MaxBanner from './components/MaxBanner';
 import Footer from './components/navigation/Footer';
+import axios from 'axios';
 
 
 const App =() => {
@@ -17,12 +18,12 @@ const App =() => {
 
   const getMovieReq = async (searchVal) => {
     const url = `https://www.omdbapi.com/?s=${searchVal}&apikey=${API_KEY}`;
-    const response = await fetch(url);
-    const resJson = await response.json();
+    const response =  await axios.get(url);
+    //const resJson = await response.json();
     //console.log(movies);
 
-    if (resJson.Search) {
-      setMovies(resJson.Search);
+    if (response.data.Search) {
+      setMovies(response.data.Search);
     } 
   };
 
@@ -33,6 +34,8 @@ const App =() => {
 
   
   // Check change on new favourite, than save it
+
+  /*
   useEffect(() => {
     const movieFav = JSON.parse
     (localStorage.getItem('react-movie-app-favourites'))
@@ -43,14 +46,13 @@ const App =() => {
     localStorage.setItem('react-movie-app-favourites', JSON.stringify(items))
   }
 
-
-
+  */
   const addFavMovie = (movie) => {
     // Make sure no duplicates in list
     const newFavouriteList = favourites.includes(movie) ? favourites: [...favourites, movie];
     if (newFavouriteList.length !== 6) {
       setFavourites(newFavouriteList);
-      saveToStorage(newFavouriteList);
+      //saveToStorage(newFavouriteList);
     }
 
   }
@@ -62,7 +64,7 @@ const App =() => {
     );
 
     setFavourites(newFavouriteList);
-    saveToStorage(newFavouriteList);
+    //saveToStorage(newFavouriteList);
     console.log(newFavouriteList.length)
   }
 
