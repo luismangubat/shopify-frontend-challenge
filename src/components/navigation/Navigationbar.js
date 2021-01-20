@@ -55,7 +55,7 @@ const Navbar = (props) => {
 			}}>
 			<Toolbar>
 				<Typography  style={{flexGrow:12}}  width='50px'height='50px' >
-				Nomineers  
+				The Shoppies  
 				</Typography>
 				<Typography  height='50px'  >
 					<div className={classes.search}>
@@ -69,7 +69,6 @@ const Navbar = (props) => {
 							onChange = {(event) => props.setInput(event.target.value)}
 							className={classes.InputBase}
 							style={{backgroundColor:'inherit', textAlign:"center", paddingRight: "15px"}}
- 
 						/>
 					</div>
 				</Typography>
