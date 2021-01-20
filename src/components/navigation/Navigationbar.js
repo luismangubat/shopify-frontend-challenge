@@ -19,17 +19,26 @@ const useStyles = makeStyles({
 	
   search: {
     position: 'relative',
-    textAlign: 'right',
-    backgroundColor: fade('#0C0C0C', 1),
+		textAlign: 'right',
+		width:"200px",
+		backgroundColor: fade('#0C0C0C', 0.2),
+		borderRadius: '15px',
     '&:hover': {
-      backgroundColor: fade('#FFFFF', 0.25),
+      backgroundColor: fade('#FFFFF', 0.2),
     },
     marginLeft: 0,
-    width: '100%',
+
   },
   inputRoot: {
-    color: 'white',
+		color: 'white',
+		borderRadius: '15px',
+		backgroundColor: fade('#0C0C0C', 0.2),
+		textAlign: 'center'
     
+	},
+	InputBase: {
+		textAlign: 'center',
+		paddingLeft: '70px'
 	}
 
 });
@@ -48,8 +57,8 @@ const Navbar = (props) => {
 				<Typography  style={{flexGrow:12}}  width='50px'height='50px' >
 				Nomineers  
 				</Typography>
-				<Typography  style={{flexGrow:1}}  width='50px'height='50px'  >
-					<div className={classes.search}     background= 'black'>
+				<Typography  height='50px'  >
+					<div className={classes.search}>
 						<InputBase
 							placeholder={"Search..."}
 							classes={{
@@ -58,7 +67,8 @@ const Navbar = (props) => {
 							}}
 							value={props.input}
 							onChange = {(event) => props.setInput(event.target.value)}
-							style={{color:'white'}}
+							className={classes.InputBase}
+							style={{backgroundColor:'inherit', textAlign:"center", paddingRight: "15px"}}
  
 						/>
 					</div>
