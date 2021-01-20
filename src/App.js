@@ -20,9 +20,7 @@ const App =() => {
       const response =  await fetch(url);
       const responseJson = await response.json();
       console.log(response)
-      //const resJson = await response.json();
-      //console.log(movies);
-  
+      
       if (responseJson.Search) {
         setMovies(responseJson.Search);
       } 
@@ -71,7 +69,7 @@ const App =() => {
 
   return (
     <div className="App">
-        <Navbar input={searchVal} setInput ={setSearchVal}/>
+        <Navbar input={searchVal} setInput={setSearchVal}/>
         <MovieHeading title='Movies'/>
         <MovieList 
           movies={movies} 
