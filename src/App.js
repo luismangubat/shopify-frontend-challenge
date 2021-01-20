@@ -1,7 +1,7 @@
 import { React, useState, useEffect} from 'react';
 import './App.css';
-import MovieList  from './components/Movielist';
-import Navbar from './components/navigation/Navbar';
+import MovieList  from './components/Movielisting';
+import Navbar from './components/navigation/Navigationbar';
 import MovieHeading from './components/MovieHeading';
 import AddNom from './components/AddNom';
 import RemoveNom from './components/RemoveNom';
@@ -117,7 +117,6 @@ const App =() => {
     );
   }
 
-
   return (
     <div className="App">
         <Navbar input={searchVal} setInput ={setSearchVal}/>
@@ -133,8 +132,6 @@ const App =() => {
           featureComponent={RemoveNom}
           handleFav={removeNomMovie} />
         <Footer/>
-
-     
     </div>
   );
 }

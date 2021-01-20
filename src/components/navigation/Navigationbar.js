@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 });
 
 
-const Menubar = (props) => {
+const Navbar = (props) => {
 	const classes = useStyles();
 
 	return (
@@ -68,4 +68,4 @@ const Menubar = (props) => {
 	);
 };
 
-export default Menubar;
+export default Navbar;
