@@ -9,7 +9,6 @@
 
 ## Design
 - Inspired by Netflix and Apple UI design 
-- Created a modern movie nomination webapp experience
 
 ## Development
 - React
