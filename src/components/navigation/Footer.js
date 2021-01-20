@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     paddingTop: '70px',
     height: '70px',
-    alignItems: 'center'
+    alignItems: 'center',
+    margin: "0"
     }
   })
 );
