@@ -14,29 +14,6 @@ const App =() => {
   const [favourites, setFavourites] = useState([]);
   const API_KEY="3e9a5e9e"
 
-/*
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const res = await axios.get(
-          `https://www.omdbapi.com/?s=${searchVal}&apikey=${API_KEY}`
-        );
-        const movies = res.data.Search;
-        if (movies === undefined) {
-          setMovies([]);
-        } else {
-          setMovies(movies);
-        }
-      } catch (err) {
-        return { err };
-      }
-    };
-    fetchMovies();
-  }, [searchVal]);
-*/
-
-
-
   const getMovieReq = async (searchVal) => {
     try {
       const url = `https://www.omdbapi.com/?s=${searchVal}&apikey=${API_KEY}`;
@@ -50,43 +27,18 @@ const App =() => {
         setMovies(responseJson.Search);
       } 
         return []
-    } catch (err){
+    } catch (err) {
       console.log(err)
     }
-   
   };
-
-
 
   // Check change on search Value
   useEffect(() => {
-
     if (searchVal === undefined) {
-      getMovieReq("Avengers")
-    
+      getMovieReq("Avengers")  
     }
-    // Display Avengers by default 
     getMovieReq(searchVal);
-
   }, [searchVal]);
-
-
-  
-  // Check change on new favourite, than save it
-
-/*
-  useEffect(() => {
-    const movieFav = JSON.parse
-    (localStorage.getItem('react-movie-app-favourites'))
-    setFavourites(movieFav)
-  }, []);
-
-  const saveToStorage  = (items) => {
-    localStorage.setItem('react-movie-app-favourites', JSON.stringify(items))
-  }
-
-*/
-
 
   const addNomMovie = (movie) => {
     // Make sure no duplicates in list
