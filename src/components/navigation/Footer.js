@@ -18,9 +18,11 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = useStyles();
   return (
-    <p className={classes.footer}>
-      Made with 💓 and React! 
-    </p>
+    <div>
+      <p  component={'span'} className={classes.footer}>
+        Made with 💓 and React! 
+      </p>
+    </div>
   )
 }
 

@@ -1,9 +1,8 @@
 import React from 'react';
-//import RemoveIcon from '@material-ui/icons/Remove';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent'; 
-
 
 
 
@@ -26,24 +25,23 @@ const useStyles = makeStyles({
   icon: {
     zIndex: 99,
     color: 'white',
-    marginLeft: '55px',
+    marginLeft: '110px',
     paddingLeft: '10px',
-    fontSize: '12px'
   },
 
 });
 
-const RemoveFav = (props) => {
+const AddNom = (props) => {
   const classes = useStyles();
   return (
   <CardContent className={classes.iconContainer}>
     <div>{props.title}</div>
     <div> {props.year}</div>
-    <IconButton onClick={() => props.onClick()}  className={classes.icon}>
-      remove 
+    <IconButton onClick={() => props.onClick()} className={classes.icon}>
+      <FavoriteIcon className={classes.favoriteIcon}/>
     </IconButton>
   </CardContent>
   );
 };
 
-export default RemoveFav;
+export default AddNom;

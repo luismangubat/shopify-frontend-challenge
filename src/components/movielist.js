@@ -68,10 +68,10 @@ export default function MovieList(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} flexWrap='nowrap'>
+    <div className={classes.root} >
       <GridList cellHeight={200}  className={classes.gridList} cols={2.5} flexWrap='nowrap'>
         {props.movies.map((movie, index) => ( 
-              <div className={classes.imageContainer}  >
+              <div className={classes.imageContainer} key={index}  >
                 <img src={movie.Poster} width="200px" height="300px" alt='movie' flexWrap='nowrap' className={classes.image}/>    
                 <FeatureComponent onClick={() => props.handleFav(movie)} title={movie.Title} year={movie.Year} />
               </div>

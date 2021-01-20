@@ -1,41 +1,80 @@
 import { React, useState, useEffect} from 'react';
 import './App.css';
-import MovieList  from './components/movielist';
-import Navbar from './components/navigation/navbar';
+import MovieList  from './components/Movielist';
+import Navbar from './components/navigation/Navbar';
 import MovieHeading from './components/MovieHeading';
-import AddFav from './components/addFav';
-import RemoveFav from './components/RemoveFav';
+import AddNom from './components/AddNom';
+import RemoveNom from './components/RemoveNom';
 import MaxBanner from './components/MaxBanner';
 import Footer from './components/navigation/Footer';
-import axios from 'axios';
-
 
 const App =() => {
   const [movies, setMovies] = useState([]);
   const [searchVal, setSearchVal] = useState('');
   const [favourites, setFavourites] = useState([]);
-  const API_KEY = "3e9a5e9e";
+  const API_KEY="3e9a5e9e"
+
+/*
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const res = await axios.get(
+          `https://www.omdbapi.com/?s=${searchVal}&apikey=${API_KEY}`
+        );
+        const movies = res.data.Search;
+        if (movies === undefined) {
+          setMovies([]);
+        } else {
+          setMovies(movies);
+        }
+      } catch (err) {
+        return { err };
+      }
+    };
+    fetchMovies();
+  }, [searchVal]);
+*/
+
+
 
   const getMovieReq = async (searchVal) => {
-    const url = `https://www.omdbapi.com/?s=${searchVal}&apikey=${API_KEY}`;
-    const response =  await axios.get(url);
-    //const resJson = await response.json();
-    //console.log(movies);
-
-    if (response.data.Search) {
-      setMovies(response.data.Search);
-    } 
+    try {
+      const url = `https://www.omdbapi.com/?s=${searchVal}&apikey=${API_KEY}`;
+      const response =  await fetch(url);
+      const responseJson = await response.json();
+      console.log(response)
+      //const resJson = await response.json();
+      //console.log(movies);
+  
+      if (responseJson.Search) {
+        setMovies(responseJson.Search);
+      } 
+        return []
+    } catch (err){
+      console.log(err)
+    }
+   
   };
+
+
 
   // Check change on search Value
   useEffect(() => {
+
+    if (searchVal === undefined) {
+      getMovieReq("Avengers")
+    
+    }
+    // Display Avengers by default 
     getMovieReq(searchVal);
+
   }, [searchVal]);
+
 
   
   // Check change on new favourite, than save it
 
-  /*
+/*
   useEffect(() => {
     const movieFav = JSON.parse
     (localStorage.getItem('react-movie-app-favourites'))
@@ -46,8 +85,10 @@ const App =() => {
     localStorage.setItem('react-movie-app-favourites', JSON.stringify(items))
   }
 
-  */
-  const addFavMovie = (movie) => {
+*/
+
+
+  const addNomMovie = (movie) => {
     // Make sure no duplicates in list
     const newFavouriteList = favourites.includes(movie) ? favourites: [...favourites, movie];
     if (newFavouriteList.length !== 6) {
@@ -57,7 +98,7 @@ const App =() => {
 
   }
 
-  const removeFavMovie = (movie) => {
+  const removeNomMovie = (movie) => {
     // Filters favoure list, and return the new shortned movie list
     const newFavouriteList = favourites.filter(
       (favourite) => favourite.imdbID !== movie.imdbID
@@ -83,15 +124,17 @@ const App =() => {
         <MovieHeading title='Movies'/>
         <MovieList 
           movies={movies} 
-          featureComponent={AddFav}
-          handleFav={addFavMovie} />
-        <MovieHeading title='Favourites'/>
+          featureComponent={AddNom}
+          handleFav={addNomMovie} />
+        <MovieHeading title='Nominations'/>
         {maxNominations}
         <MovieList 
           movies={favourites} 
-          featureComponent={RemoveFav}
-          handleFav={removeFavMovie} />
+          featureComponent={RemoveNom}
+          handleFav={removeNomMovie} />
         <Footer/>
+
+     
     </div>
   );
 }
